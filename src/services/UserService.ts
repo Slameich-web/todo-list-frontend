@@ -7,5 +7,7 @@ export default class UserService{
     static fetchUsers():Promise<AxiosResponse<IUser[]>>{
         return $api.get<IUser[]>("/users")
     }
-
+    static async changeUserName(userName:string):Promise<AxiosResponse<IUser[]>>{
+        return $api.post<IUser[]>("/changeUserName",{userName})
+    }
 }

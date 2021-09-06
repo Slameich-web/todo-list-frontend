@@ -4,6 +4,7 @@ import AuthService from "../services/AuthService"
 import axios from "axios"
 import { API_URL } from "../http"
 import { AuthResponse } from "../models/response/AuthResponse"
+import UserService from "../services/UserService"
 
 
 export default class Store {
@@ -36,8 +37,8 @@ export default class Store {
             this.setAuth(true)
             this.setUser(response.data.user)
         }catch(e:any){
-            this.setErrorMessage(e.response.data.message)
-            console.log(e.response.data.message)
+            this.setErrorMessage(e.response?.data?.message)
+            console.log(e.response?.data?.message)
         }
     }
     async registration(email: string, password: string, userName: string){
@@ -69,7 +70,7 @@ export default class Store {
             this.setAuth(true)
             this.setUser(response.data.user)
         }catch(e:any){
-            console.log(e.response.data.message)
+            console.log(e.response?.data?.message)
         }
         finally{
             this.setLoading(false)

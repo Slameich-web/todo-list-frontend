@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { IUser } from './models/IUser';
 import UserService from './services/UserService';
 import RegistrationForm from './components/LoginWindow/RegistrationForm/RegistrationForm';
+import MainPage from './components/MainPage/MainPage';
 
 
 function App() {
@@ -46,15 +47,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{store.isAuth ? `Пользователь авторизирован ${store.user.userName}` : 'АВТОРИЗИРУЙТЕСЬ'}</h1>
-      <button onClick={()=>store.logout()}>Выйти</button>
-      <div>
-        <button onClick={()=>{getUsers()}}>Полчучить</button>
-      </div>
-      <div>
-        {users.map(user=><div key={user.email}>{user.email}</div>
-        )}
-      </div>
+      <MainPage/>
     </div>
   );
 }
